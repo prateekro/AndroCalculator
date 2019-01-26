@@ -1,6 +1,7 @@
 package com.prateek.calculator;
 
 import android.animation.StateListAnimator;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
 import android.support.constraint.ConstraintLayout;
@@ -47,10 +48,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (calc1.getId() == view.getId()){
             Toast.makeText(this, "Clicked 1", Toast.LENGTH_SHORT).show();
             Util.blink(calc1);
+            startActivity(new Intent(this, TextCalculator.class));
         }
         if (calc2.getId() == view.getId()){
             Toast.makeText(this, "Clicked 2", Toast.LENGTH_SHORT).show();
             Util.blink(calc2);
+            startActivity(new Intent(this, ButtonCalculator.class));
         }
 
     }

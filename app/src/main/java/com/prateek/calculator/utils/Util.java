@@ -1,7 +1,13 @@
 package com.prateek.calculator.utils;
 
+import android.app.Activity;
+import android.app.Application;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.view.View;
+
+import com.prateek.calculator.MainActivity;
 
 public class Util {
 
@@ -15,4 +21,5 @@ public class Util {
             }
         }, 200);
     }
+
 }
