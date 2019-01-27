@@ -7,12 +7,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
+
+import static java.lang.Integer.parseInt;
 
 public class ButtonCalculator extends Activity implements View.OnClickListener {
 
     Button button[] = new Button[16];
-    TextView tv_view;
+    TextView tv_view, tv_result;
     String regex = "^(\\d+[\\+\\-\\*\\/]{1})+\\d+$";
 
     @Override
@@ -20,7 +23,9 @@ public class ButtonCalculator extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_button_calculator);
         tv_view = (TextView) findViewById(R.id.tv_show);
+        tv_result = (TextView) findViewById(R.id.tv_result);
         tv_view.setText("");
+        tv_result.setText("");
 
 
     }
@@ -45,9 +50,9 @@ public class ButtonCalculator extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+        tv_result.setText("");
         for (Button btn: button){
             if(btn.getId() == view.getId()){
-
 
 //                setClickable(true);
 
@@ -71,7 +76,8 @@ public class ButtonCalculator extends Activity implements View.OnClickListener {
                 }else if(tv_view.getText().toString().matches("(\\d)*([\\+\\-\\*\\/]{1})\\d*")){
                     //split on symbol & perform symbol
                     Log.d("TAG - ButtonCalc", "onClick: Equals final regex with equal: " + (tv_view.getText().toString() + btn.getText().toString()));
-                    tv_view.setText(performCalculation(tv_view.getText().toString()));
+                    tv_result.setText(performCalculation(tv_view.getText().toString()));
+                    tv_view.setText("");
                 }
 
                 if(btn.getText().toString().contentEquals("C")){
@@ -92,14 +98,44 @@ public class ButtonCalculator extends Activity implements View.OnClickListener {
         String[] parts = full.split("([\\+\\-\\*\\/])");
         String part1 = parts[0]; // 004
         String part2 = parts[1];
+//        long temp = 0;
         String eval = "";
+        if (full.contains("/")) {
+            try  {
+                eval = ((new BigDecimal(part1)).divide(new BigDecimal(part2)))  + "";
+                
+            } catch (Exception e) {
+                eval = "Undefined. Stop Testing me :D";
+            }
+        } else if(full.contains("*")){
+            try {
+                eval = (BigDecimal.valueOf(Double.parseDouble(part1)).multiply(BigDecimal.valueOf(Double.parseDouble(part2)))) + "";
+            } catch (Exception e) {
+                eval = "I'm still in process to learn";
+            }
+
+        }
+            else if(full.contains("-")){
+            eval = (parseInt(part1) - parseInt(part2)) + "";
+
+        }
+            else if(full.contains("+")){
+            eval = (parseInt(part1) + parseInt(part2)) + "";
+        }
+
+
+//        eval = " " + (part1) + (part2);
         return eval;
     }
 
     private void setClickable(Boolean bool){
         for (int i = 10; i < 14; i++){ // / * - +
             button[i].setClickable(bool);
-//            button[i].;
+            if (bool) {
+                button[i].setAlpha((float) 1);
+            } else {
+                button[i].setAlpha((float) 0.1);
+            }
 
         }
     }

@@ -6,6 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".ButtonCalculator">
 
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="359dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="sans-serif-thin"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/linear_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linear_1" />
+
     <LinearLayout
         android:id="@+id/linear_1"
         android:layout_width="395dp"
@@ -96,7 +111,7 @@
             android:layout_width="wrap_content"
             android:layout_height="90dp"
             android:layout_weight="1"
-            android:backgroundTint="@color/colorBlack"
+            android:backgroundTint="@color/colorEngGreen"
             android:text="/"
             android:textColor="@android:color/background_light" />
     </LinearLayout>
@@ -148,7 +163,7 @@
             android:layout_width="wrap_content"
             android:layout_height="90dp"
             android:layout_weight="1"
-            android:backgroundTint="@color/colorBlack"
+            android:backgroundTint="@color/colorEngGreen"
             android:text="*"
             android:textColor="@android:color/background_light" />
     </LinearLayout>
@@ -200,7 +215,7 @@
             android:layout_width="wrap_content"
             android:layout_height="90dp"
             android:layout_weight="1"
-            android:backgroundTint="@color/colorBlack"
+            android:backgroundTint="@color/colorEngGreen"
             android:text="-"
             android:textColor="@android:color/background_light" />
     </LinearLayout>
@@ -225,7 +240,7 @@
             android:layout_width="wrap_content"
             android:layout_height="90dp"
             android:layout_weight="1"
-            android:backgroundTint="@color/colorBlack"
+            android:backgroundTint="@color/colorHighlight"
             android:text="C"
             android:textColor="@android:color/background_light" />
 
@@ -243,7 +258,7 @@
             android:layout_width="wrap_content"
             android:layout_height="90dp"
             android:layout_weight="1"
-            android:backgroundTint="@color/colorBlack"
+            android:backgroundTint="@color/colorPrimary"
             android:text="="
             android:textColor="@android:color/background_light" />
 
@@ -252,7 +267,7 @@
             android:layout_width="wrap_content"
             android:layout_height="90dp"
             android:layout_weight="1"
-            android:backgroundTint="@color/colorBlack"
+            android:backgroundTint="@color/colorEngGreen"
             android:text="+"
             android:textColor="@android:color/background_light" />
     </LinearLayout>

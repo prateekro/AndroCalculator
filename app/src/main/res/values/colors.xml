@@ -5,4 +5,9 @@
     <color name="colorAccent">#9DBEAA</color>
     <color name="colorBlack">#4F7B8A</color>
     <color name="colorEngGreen">#204E4A</color>
+    <color name="colorHighlight">#ED4F25</color>
+    <color name="palatteBlk2">#956036</color>
+    <color name="palatteBlk1">#E5A050</color>
+    <color name="palatteBlk4">#ECCA71</color>
+    <color name="palatteBlk3">#95CCAB</color>
 </resources>
