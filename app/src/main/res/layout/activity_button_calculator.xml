@@ -19,10 +19,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.100000024">
+        app:layout_constraintVertical_bias="0.050000012">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/tv_show"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -34,6 +34,21 @@
             android:textSize="24sp" />
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/colorEngGreen"
+        android:backgroundTint="@color/colorEngGreen"
+        android:src="?attr/dividerVertical"
+        app:layout_constraintBottom_toTopOf="@+id/linear_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linear_1" />
+
     <LinearLayout
         android:id="@+id/linear_2"
         android:layout_width="395dp"
@@ -41,14 +56,13 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:gravity="center_horizontal|center_vertical"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linear_1"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.050000012">
 
         <Button
             android:id="@+id/button_9"
@@ -56,8 +70,8 @@
             android:layout_height="90dp"
             android:layout_weight="1"
             android:backgroundTint="@color/colorBlack"
-            android:textColor="@android:color/background_light"
-            android:text="9"/>
+            android:text="9"
+            android:textColor="@android:color/background_light" />
 
         <Button
             android:id="@+id/button_8"
@@ -65,8 +79,8 @@
             android:layout_height="90dp"
             android:layout_weight="1"
             android:backgroundTint="@color/colorBlack"
-            android:textColor="@android:color/background_light"
-            android:text="8" />
+            android:text="8"
+            android:textColor="@android:color/background_light" />
 
         <Button
             android:id="@+id/button_7"
@@ -74,8 +88,8 @@
             android:layout_height="90dp"
             android:layout_weight="1"
             android:backgroundTint="@color/colorBlack"
-            android:textColor="@android:color/background_light"
-            android:text="7" />
+            android:text="7"
+            android:textColor="@android:color/background_light" />
 
         <Button
             android:id="@+id/button_10"
@@ -83,8 +97,8 @@
             android:layout_height="90dp"
             android:layout_weight="1"
             android:backgroundTint="@color/colorBlack"
-            android:textColor="@android:color/background_light"
-            android:text="/" />
+            android:text="/"
+            android:textColor="@android:color/background_light" />
     </LinearLayout>
 
     <LinearLayout
@@ -94,7 +108,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:gravity="center_horizontal|center_vertical"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -109,8 +122,8 @@
             android:layout_height="90dp"
             android:layout_weight="1"
             android:backgroundTint="@color/colorBlack"
-            android:textColor="@android:color/background_light"
-            android:text="6" />
+            android:text="6"
+            android:textColor="@android:color/background_light" />
 
         <Button
             android:id="@+id/button_5"
@@ -118,8 +131,8 @@
             android:layout_height="90dp"
             android:layout_weight="1"
             android:backgroundTint="@color/colorBlack"
-            android:textColor="@android:color/background_light"
-            android:text="5" />
+            android:text="5"
+            android:textColor="@android:color/background_light" />
 
         <Button
             android:id="@+id/button_4"
@@ -127,8 +140,8 @@
             android:layout_height="90dp"
             android:layout_weight="1"
             android:backgroundTint="@color/colorBlack"
-            android:textColor="@android:color/background_light"
-            android:text="4" />
+            android:text="4"
+            android:textColor="@android:color/background_light" />
 
         <Button
             android:id="@+id/button_11"
@@ -136,8 +149,8 @@
             android:layout_height="90dp"
             android:layout_weight="1"
             android:backgroundTint="@color/colorBlack"
-            android:textColor="@android:color/background_light"
-            android:text="*" />
+            android:text="*"
+            android:textColor="@android:color/background_light" />
     </LinearLayout>
 
     <LinearLayout
@@ -147,7 +160,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:gravity="center_horizontal|center_vertical"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -162,8 +174,8 @@
             android:layout_height="90dp"
             android:layout_weight="1"
             android:backgroundTint="@color/colorBlack"
-            android:textColor="@android:color/background_light"
-            android:text="3" />
+            android:text="3"
+            android:textColor="@android:color/background_light" />
 
         <Button
             android:id="@+id/button_2"
@@ -171,8 +183,8 @@
             android:layout_height="90dp"
             android:layout_weight="1"
             android:backgroundTint="@color/colorBlack"
-            android:textColor="@android:color/background_light"
-            android:text="2" />
+            android:text="2"
+            android:textColor="@android:color/background_light" />
 
         <Button
             android:id="@+id/button_1"
@@ -180,8 +192,8 @@
             android:layout_height="90dp"
             android:layout_weight="1"
             android:backgroundTint="@color/colorBlack"
-            android:textColor="@android:color/background_light"
-            android:text="1" />
+            android:text="1"
+            android:textColor="@android:color/background_light" />
 
         <Button
             android:id="@+id/button_12"
@@ -189,8 +201,8 @@
             android:layout_height="90dp"
             android:layout_weight="1"
             android:backgroundTint="@color/colorBlack"
-            android:textColor="@android:color/background_light"
-            android:text="-" />
+            android:text="-"
+            android:textColor="@android:color/background_light" />
     </LinearLayout>
 
     <LinearLayout
@@ -200,7 +212,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:gravity="center_horizontal|center_vertical"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -215,8 +226,8 @@
             android:layout_height="90dp"
             android:layout_weight="1"
             android:backgroundTint="@color/colorBlack"
-            android:textColor="@android:color/background_light"
-            android:text="." />
+            android:text="C"
+            android:textColor="@android:color/background_light" />
 
         <Button
             android:id="@+id/button_0"
@@ -224,8 +235,8 @@
             android:layout_height="90dp"
             android:layout_weight="1"
             android:backgroundTint="@color/colorBlack"
-            android:textColor="@android:color/background_light"
-            android:text="0" />
+            android:text="0"
+            android:textColor="@android:color/background_light" />
 
         <Button
             android:id="@+id/button_14"
@@ -233,8 +244,8 @@
             android:layout_height="90dp"
             android:layout_weight="1"
             android:backgroundTint="@color/colorBlack"
-            android:textColor="@android:color/background_light"
-            android:text="=" />
+            android:text="="
+            android:textColor="@android:color/background_light" />
 
         <Button
             android:id="@+id/button_13"
@@ -242,7 +253,7 @@
             android:layout_height="90dp"
             android:layout_weight="1"
             android:backgroundTint="@color/colorBlack"
-            android:textColor="@android:color/background_light"
-            android:text="+" />
+            android:text="+"
+            android:textColor="@android:color/background_light" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

@@ -8,6 +8,7 @@ import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Layout;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
+        Log.d("TAG - MainAct", String.valueOf(view.getId()));
         if (calc1.getId() == view.getId()){
             Toast.makeText(this, "Clicked 1", Toast.LENGTH_SHORT).show();
             Util.blink(calc1);
