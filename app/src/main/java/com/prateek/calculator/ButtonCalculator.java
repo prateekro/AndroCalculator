@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.ArrayList;
 
 import static java.lang.Integer.parseInt;
@@ -96,16 +97,16 @@ public class ButtonCalculator extends Activity implements View.OnClickListener {
     private String performCalculation(String full) {
 
         String[] parts = full.split("([\\+\\-\\*\\/])");
-        String part1 = parts[0]; // 004
+        String part1 = parts[0];
         String part2 = parts[1];
-//        long temp = 0;
         String eval = "";
         if (full.contains("/")) {
             try  {
-                eval = ((new BigDecimal(part1)).divide(new BigDecimal(part2)))  + "";
-                
+              eval = (new BigInteger(part1)).divide(new BigInteger(part2)) + "";
+
             } catch (Exception e) {
                 eval = "Undefined. Stop Testing me :D";
+                e.printStackTrace();
             }
         } else if(full.contains("*")){
             try {
