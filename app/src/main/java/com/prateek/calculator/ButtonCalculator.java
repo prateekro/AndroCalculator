@@ -14,6 +14,7 @@ import java.math.BigInteger;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 
+import static com.prateek.calculator.utils.Util.performCalculation;
 import static java.lang.Integer.parseInt;
 
 public class ButtonCalculator extends Activity implements View.OnClickListener {
@@ -40,15 +41,12 @@ public class ButtonCalculator extends Activity implements View.OnClickListener {
         for (int i = 0; i < 16; i++) {
 
             int id = getResources().getIdentifier("button_" + i, "id", getPackageName());
-//            Log.d("TAG - ButtonCalc", "onCreate ID: "+id);
-//            Log.d("TAG - ButtonCalc 2", String.valueOf(findViewById(R.id.button_0)));
-//            Log.d("TAG - ButtonCalc 3", String.valueOf(R.id.button_0));
             button[i] = (Button) findViewById(id);
             button[i].setOnClickListener(this);
         }
         setClickable(false);
 
-//        ^(\d+[\+\-\*\/]{1})+\d+$
+//        Regex = ^(\d+[\+\-\*\/]{1})+\d+$
 
     }
 
@@ -57,14 +55,6 @@ public class ButtonCalculator extends Activity implements View.OnClickListener {
         tv_result.setText("");
         for (Button btn: button){
             if(btn.getId() == view.getId()){
-
-//                setClickable(true);
-
-                Log.d("TAG - ButtonCalc", "onClick-Text: " + tv_view.getText().toString() + " :TYPE: " + btn.getText().toString() );
-//                if ((tv_view.getText().toString() + btn.getText().toString()).matches(regex)){
-//                }
-
-
                 if ((tv_view.getText().toString() + btn.getText().toString()).matches("(\\d)*([\\+\\-\\*\\/]{1})\\d*")){
                     setClickable(false);
                 }
@@ -73,13 +63,11 @@ public class ButtonCalculator extends Activity implements View.OnClickListener {
                     setClickable(true);
                 }
 
-//                equal in first run close. equal click asses ans and all hide except c
-
                 if(!(btn.getText().toString().contentEquals("="))){
                     tv_view.setText(tv_view.getText().toString() + btn.getText().toString());
                 }else if(tv_view.getText().toString().matches("(\\d)*([\\+\\-\\*\\/]{1})\\d*")){
                     //split on symbol & perform symbol
-                    Log.d("TAG - ButtonCalc", "onClick: Equals final regex with equal: " + (tv_view.getText().toString() + btn.getText().toString()));
+//                    Log.d("TAG - ButtonCalc", "onClick: Equals final regex with equal: " + (tv_view.getText().toString() + btn.getText().toString()));
                     tv_result.setText(performCalculation(tv_view.getText().toString()));
                     tv_view.setText("");
                 }
@@ -97,48 +85,7 @@ public class ButtonCalculator extends Activity implements View.OnClickListener {
         }
     }
 
-    private String performCalculation(String full) {
 
-        String[] parts = full.split("([\\+\\-\\*\\/])");
-        String part1 = parts[0];
-        String part2 = parts[1];
-        String eval = "";
-
-        if (full.contains("/")) {
-            try  {
-                eval = (new BigDecimal(part1).divide(new BigDecimal(part2), 2, RoundingMode.HALF_UP)) + "";
-            } catch (Exception e) {
-                eval = "Undefined.";
-            }
-        }
-
-        else if(full.contains("*")){
-            try {
-                eval = ((new BigInteger(part1)).multiply(new BigInteger(part2))) + "";
-            } catch (Exception e) {
-                eval = "Out of Transistors";
-            }
-        }
-
-        else if(full.contains("-")){
-                try{
-                    eval = (new BigInteger(part1).subtract(new BigInteger(part2))) + "";
-                } catch (Exception e){
-                    eval = "Still working on this :)";
-                }
-
-        }
-
-        else if(full.contains("+")){
-                try{
-                    eval = (new BigInteger(part1).add(new BigInteger(part2))) + "";
-                } catch (Exception e){
-                    eval = "Still working on this :)";
-                }
-        }
-
-        return eval;
-    }
 
     private void setClickable(Boolean bool){
         for (int i = 10; i < 14; i++){ // / * - +
@@ -154,5 +101,12 @@ public class ButtonCalculator extends Activity implements View.OnClickListener {
 
     private boolean isSymbol(String btn){
         return  (btn.matches("([\\+\\-\\*\\/])")) ? true : false;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+        overridePendingTransition(R.anim.slide_to_right, R.anim.slide_from_left);
     }
 }

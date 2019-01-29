@@ -51,12 +51,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this, "Clicked 1", Toast.LENGTH_SHORT).show();
             Util.blink(calc1);
             startActivity(new Intent(this, TextCalculator.class));
+            overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
         }
         if (calc2.getId() == view.getId()){
             Toast.makeText(this, "Clicked 2", Toast.LENGTH_SHORT).show();
             Util.blink(calc2);
             startActivity(new Intent(this, ButtonCalculator.class));
+            overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
         }
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+        overridePendingTransition(R.anim.slide_to_right, R.anim.slide_from_left);
     }
 }
