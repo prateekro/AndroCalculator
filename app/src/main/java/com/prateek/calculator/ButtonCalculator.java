@@ -2,6 +2,8 @@ package com.prateek.calculator;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.view.animation.FastOutSlowInInterpolator;
+import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -142,9 +144,9 @@ public class ButtonCalculator extends Activity implements View.OnClickListener {
         for (int i = 10; i < 14; i++){ // / * - +
             button[i].setClickable(bool);
             if (bool) {
-                button[i].setAlpha((float) 1);
+                button[i].animate().setDuration(250).setInterpolator(new FastOutSlowInInterpolator()).alpha((float) 1);//setAlpha((float) 1);
             } else {
-                button[i].setAlpha((float) 0.1);
+                button[i].animate().setDuration(250).setInterpolator(new LinearOutSlowInInterpolator()).alpha((float) 0.1);//setAlpha((float) 1);
             }
 
         }
