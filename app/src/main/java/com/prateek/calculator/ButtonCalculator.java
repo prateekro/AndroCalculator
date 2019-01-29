@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 
 import static java.lang.Integer.parseInt;
@@ -100,32 +101,40 @@ public class ButtonCalculator extends Activity implements View.OnClickListener {
         String part1 = parts[0];
         String part2 = parts[1];
         String eval = "";
+
         if (full.contains("/")) {
             try  {
-              eval = (new BigInteger(part1)).divide(new BigInteger(part2)) + "";
-
+                eval = (new BigDecimal(part1).divide(new BigDecimal(part2), 2, RoundingMode.HALF_UP)) + "";
             } catch (Exception e) {
-                eval = "Undefined. Stop Testing me :D";
-                e.printStackTrace();
+                eval = "Undefined.";
             }
-        } else if(full.contains("*")){
+        }
+
+        else if(full.contains("*")){
             try {
-                eval = (BigDecimal.valueOf(Double.parseDouble(part1)).multiply(BigDecimal.valueOf(Double.parseDouble(part2)))) + "";
+                eval = ((new BigInteger(part1)).multiply(new BigInteger(part2))) + "";
             } catch (Exception e) {
-                eval = "I'm still in process to learn";
+                eval = "Out of Transistors";
             }
-
-        }
-            else if(full.contains("-")){
-            eval = (parseInt(part1) - parseInt(part2)) + "";
-
-        }
-            else if(full.contains("+")){
-            eval = (parseInt(part1) + parseInt(part2)) + "";
         }
 
+        else if(full.contains("-")){
+                try{
+                    eval = (new BigInteger(part1).subtract(new BigInteger(part2))) + "";
+                } catch (Exception e){
+                    eval = "Still working on this :)";
+                }
 
-//        eval = " " + (part1) + (part2);
+        }
+
+        else if(full.contains("+")){
+                try{
+                    eval = (new BigInteger(part1).add(new BigInteger(part2))) + "";
+                } catch (Exception e){
+                    eval = "Still working on this :)";
+                }
+        }
+
         return eval;
     }
 
