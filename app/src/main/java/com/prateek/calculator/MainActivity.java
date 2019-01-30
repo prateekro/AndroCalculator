@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
 import android.support.constraint.ConstraintLayout;
+import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Layout;
@@ -17,18 +18,20 @@ import com.prateek.calculator.utils.Util;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private ConstraintLayout parent;
     Button calc1, calc2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        parent = this.findViewById(R.id.layout_parent);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        ConstraintLayout parent = this.findViewById(R.id.layout_parent);
 //        parent.setBackgroundColor(Color.parseColor("#018786"));
         parent.setBackgroundColor(Color.parseColor("#9DBEAA"));
         parent.setBackground(getResources().getDrawable(R.drawable.bg_repeat));
@@ -51,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this, "Clicked 1", Toast.LENGTH_SHORT).show();
             Util.blink(calc1);
             startActivity(new Intent(this, TextCalculator.class));
-            overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
+            overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
         }
         if (calc2.getId() == view.getId()){
             Toast.makeText(this, "Clicked 2", Toast.LENGTH_SHORT).show();

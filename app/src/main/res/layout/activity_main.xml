@@ -11,12 +11,14 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/bree_serif"
         android:text="Hey! Select calculator type"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8" />
+        app:layout_constraintVertical_bias="0.75" />
 
     <Button
         android:id="@+id/btnCal1"
@@ -42,5 +44,26 @@
         app:layout_constraintHorizontal_bias="0.7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_text_calc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/bree_serif"
+        android:text="Text Calculator"
+        app:layout_constraintEnd_toEndOf="@+id/btnCal1"
+        app:layout_constraintStart_toStartOf="@+id/btnCal1"
+        app:layout_constraintTop_toBottomOf="@+id/btnCal1" />
+
+    <TextView
+        android:id="@+id/tv_grid_calc"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:fontFamily="@font/bree_serif"
+        android:text="Grid Calculator"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_text_calc"
+        app:layout_constraintEnd_toEndOf="@+id/btnCal2"
+        app:layout_constraintStart_toStartOf="@+id/btnCal2" />
 
 </android.support.constraint.ConstraintLayout>

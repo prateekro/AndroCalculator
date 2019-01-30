@@ -43,7 +43,7 @@ public class Util {
 
         else if(full.contains("*")){
             try {
-                eval = ((new BigInteger(part1)).multiply(new BigInteger(part2))) + "";
+                eval = (new BigDecimal(part1).multiply(new BigDecimal(part2))) + "";
             } catch (Exception e) {
                 eval = "Out of Transistors";
             }
@@ -51,7 +51,7 @@ public class Util {
 
         else if(full.contains("-")){
             try{
-                eval = (new BigInteger(part1).subtract(new BigInteger(part2))) + "";
+                eval = (new BigDecimal(part1).subtract(new BigDecimal(part2))) + "";
             } catch (Exception e){
                 eval = "Still working on this :)";
             }
@@ -60,7 +60,7 @@ public class Util {
 
         else if(full.contains("+")){
             try{
-                eval = (new BigInteger(part1).add(new BigInteger(part2))) + "";
+                eval = (new BigDecimal(part1).add(new BigDecimal(part2))) + "";
             } catch (Exception e){
                 eval = "Still working on this :)";
             }
